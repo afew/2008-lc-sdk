@@ -91,10 +91,10 @@ INT CLcxmBlc::Create(void* p1, void* p2, void* p3, void* p4)
 	m_pDev	= (PDEV)p1;
 	m_pDst	= p2;
 
-	if(FAILED(Lcm::LcxMdl_CreatePack(	NULL, &m_pMdb2D, m_pDev, this)))
+	if(FAILED(Lcm::MdlX_CreatePack(	NULL, &m_pMdb2D, m_pDev, this)))
 		return -1;
 
-	if(FAILED(Lcm::LcxMdl_CreatePack(	NULL, &m_pMdb3D, m_pDev, this)))
+	if(FAILED(Lcm::MdlX_CreatePack(	NULL, &m_pMdb3D, m_pDev, this)))
 		return -1;
 
 	return 0;

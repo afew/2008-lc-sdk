@@ -715,13 +715,13 @@ INT CWndWrk::SetMdB(WORD nI1, WORD nI2, WORD nI3)
 
 		if(12 == pSrc->GetType())
 		{
-			if(FAILED(Lcm::LcxMdl_Create("billboard", &m_pMdB, pDev, pSrc)))
+			if(FAILED(Lcm::MdlX_Create("billboard", &m_pMdB, pDev, pSrc)))
 				return -1;
 		}
 
 		else if(13 == pSrc->GetType())
 		{
-			if(FAILED(Lcm::LcxMdl_Create("solid", &m_pMdB, pDev, pSrc)))
+			if(FAILED(Lcm::MdlX_Create("solid", &m_pMdB, pDev, pSrc)))
 				return -1;
 		}
 

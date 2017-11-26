@@ -1500,7 +1500,7 @@ INT CLcxmDst::FileLoad(char* sFile)
 				{
 					Lcm::ILcmMdl*	pMdB = NULL;
 					
-					if(FAILED(Lcm::LcxMdl_Create("billboard", &pMdB, m_pDev, pSrc)))
+					if(FAILED(Lcm::MdlX_Create("billboard", &pMdB, m_pDev, pSrc)))
 						return -1;
 
 					pMdB->SetRotation((FLOAT*)&vcR);
@@ -1543,7 +1543,7 @@ INT CLcxmDst::FileLoad(char* sFile)
 					Lcm::ILcmMdl*	pMdB = NULL;
 					void*			pBnd = pMsh->GetBndInf();
 					
-					if(FAILED(Lcm::LcxMdl_Create("solid", &pMdB, m_pDev, pSrc)))
+					if(FAILED(Lcm::MdlX_Create("solid", &pMdB, m_pDev, pSrc)))
 						return -1;
 
 					pMdB->SetRotation((FLOAT*)&vcR);
