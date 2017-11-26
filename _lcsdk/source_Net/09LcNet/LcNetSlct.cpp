@@ -338,11 +338,7 @@ INT CLcNetSlct::FrameMoveSvr()
 	
 
 	if(FAILED(LcNet_SocketErrorCheck(hr)))			// Error Check
-	{
-		ERROR_CHECK_MESSAGE(hr);
-
 		return -1;
-	}
 
 	
 	for(UINT i=0; i<m_rmF.fd_count; ++i)
@@ -450,8 +446,6 @@ INT CLcNetSlct::FrameMoveCln()
 
 			if(FAILED(LcNet_SocketErrorCheck(iSize)))			// Error Check
 			{
-				ERROR_CHECK_MESSAGE(hr);
-
 				// Á¾·á
 				LcNet_SocketClose(&m_scH);
 				m_eNetSt = NETST_CLOSE;
@@ -511,8 +505,7 @@ INT CLcNetSlct::SendAllData()
 
 		if(FAILED(LcNet_SocketErrorCheck(hr)))			// Error Check
 		{
-			ERROR_CHECK_MESSAGE(hr);
-
+			LcNet_FormatMessage(hr);
 			LcNet_SocketClose(&m_scH);
 			return -1;
 		}

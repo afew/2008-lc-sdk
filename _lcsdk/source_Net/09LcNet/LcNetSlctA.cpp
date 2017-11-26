@@ -168,27 +168,19 @@ INT CLcNetSlctA::Connect(char* sIp, char* sPort)
 	
 
 	// AsycSelect에 연결. 자동으로 Non-blocking전환
-	INT hr = LcNet_WSAAsyncSelect(  m_scH
+	INT hr = WSAAsyncSelect(  m_scH
 							, m_hWnd
 							, m_dwMsg
 							, (FD_CONNECT|FD_READ|FD_WRITE|FD_CLOSE));
 
 	if(FAILED(LcNet_SocketErrorCheck(hr)))
-	{
-		ERROR_CHECK_MESSAGE(hr);
-
 		return -1;
-	}
 
 	//4. 커넥션
 	hr = LcNet_SocketConnect(m_scH, &m_sdH);
 
 	if(FAILED(LcNet_SocketErrorCheck(hr)))
-	{
-		ERROR_CHECK_MESSAGE(hr);
-
 		return -1;
-	}
 
 
 	m_eNetSt = NETST_CONNECTING;
@@ -243,14 +235,10 @@ INT CLcNetSlctA::Listen()
 	
 	// 비동기 연결
 	// The WSAAsyncSelect function automatically sets socket s to nonblocking mode
-	INT hr = LcNet_WSAAsyncSelect(m_scH, m_hWnd, m_dwMsg, FD_ACCEPT|FD_READ|FD_WRITE|FD_CLOSE);
+	INT hr = WSAAsyncSelect(m_scH, m_hWnd, m_dwMsg, FD_ACCEPT|FD_READ|FD_WRITE|FD_CLOSE);
 
 	if(FAILED(LcNet_SocketErrorCheck(hr)))
-	{
-		ERROR_CHECK_MESSAGE(hr);
-
 		return -1;
-	}
 
 	if(FAILED(LcNet_SocketListen(m_scH)))
 		return -1;
@@ -401,7 +389,7 @@ LRESULT CLcNetSlctA::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
 			if(scCln)
 			{
 				// 비동기 셀렉트에 연결한다.
-				LcNet_WSAAsyncSelect(scCln, hWnd, m_dwMsg, (FD_READ|FD_WRITE|FD_CLOSE));
+				WSAAsyncSelect(scCln, hWnd, m_dwMsg, (FD_READ|FD_WRITE|FD_CLOSE));
 
 				Ev_Set(scCln, &sdCln);	// 증가...
 				printf("New Client: %d \n", scCln);
@@ -509,8 +497,6 @@ DWORD CLcNetSlctA::ProcSend(void* pParam)
 
 			if(FAILED(LcNet_SocketErrorCheck(hr)))
 			{
-				ERROR_CHECK_MESSAGE(hr);
-
 				m_nThSend = -1;
 				hr = -1;
 				break;
@@ -529,8 +515,6 @@ DWORD CLcNetSlctA::ProcSend(void* pParam)
 
 						if(FAILED(LcNet_SocketErrorCheck(hr)))
 						{
-							ERROR_CHECK_MESSAGE(hr);
-
 							continue;
 						}
 					}
@@ -585,8 +569,6 @@ INT CLcNetSlctA::SendAllData()
 
 		if(FAILED(LcNet_SocketErrorCheck(iSize)))			// Error Check
 		{
-			ERROR_CHECK_MESSAGE(hr);
-
 			m_nThSend = -1;
 			return -1;
 		}

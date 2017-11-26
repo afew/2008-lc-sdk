@@ -39,8 +39,8 @@ void main()
 	printf("\n\n네트워크 실행--------------------\n");
 
 
-	char	sBufSnd[PCK_BUF_MAX_MSG]={0};
-	char	sBufRcv[PCK_BUF_MAX_MSG]={0};
+	char	sBufSnd[1024]={0};
+	char	sBufRcv[1024]={0};
 	INT		iLenSnd=0;
 	INT		iLenRcv=0;
 	DWORD	dRcvMsg=0;
@@ -61,7 +61,7 @@ void main()
 				if(SUCCEEDED(g_pNet->Query("Get New Socket", &scNew)))
 				{
 					int		iLenSnd=0;
-					char	sBufSnd[PCK_BUF_MAX_MSG]={0};
+					char	sBufSnd[1024]={0};
 					sprintf(sBufSnd, "SocketId:%d", scNew);
 					iLenSnd=strlen(sBufSnd);
 

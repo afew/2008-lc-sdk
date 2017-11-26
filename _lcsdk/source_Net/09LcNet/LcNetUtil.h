@@ -5,28 +5,17 @@
 #ifndef _LcNetUtil_H_
 #define _LcNetUtil_H_
 
-// 모든 함수는 실패하는 경우 음수 값을 반환.
+
 
 #define SAFE_CLOSE_HANDLE(p)	{	if(p){	CloseHandle( p );	(p) = NULL;	}	}
-#define ERROR_MESSAGE_LINE(pBuf){	printf("Error Line:%3d %s\t%s\n", __LINE__, __FILE__, (pBuf));	}
-//#define ERROR_MESSAGE_LINE(pBuf){	printf("Error Line:%3d %s\t%s\t%s\t%s\n", __LINE__, __DATE__, __TIME__, __FILE__, (pBuf));	}
+#define ERROR_MESSAGE_LINE(pBuf){	printf("Error Line:%3d %s\t%s\t%s\t%s\n", __LINE__, __DATE__, __TIME__, __FILE__, (pBuf));	}
 
 
 // Error Message
-void	LcNet_FormatMessage(char* sMsg, DWORD hr);			// Network Message Formating
-void	LcNet_FormatMessage(char* sMsg);					// Network Message Formating
-void	LcNet_ErrorMessage(DWORD hr);						// Network Error Message Catching
+void	LcNet_FormatMessage(DWORD hr);			// Network Message Formating
+void	LcNet_FormatMessage(char* sMsg);		// Network Message Formating
+void	LcNet_GetNetworkError(DWORD hr);		// Network Error Message Catching
 INT		LcNet_WSAGetError();
-
-
-#define ERROR_CHECK_MESSAGE(hr)				\
-{											\
-	char ssLcErrMsg[2048]={0};				\
-	LcNet_FormatMessage( ssLcErrMsg, hr);	\
-	printf("Error Line:%3d %s\n"			\
-			, __LINE__, __FILE__			\
-			, (ssLcErrMsg));				\
-}
 
 
 // Winsock DLL
@@ -44,11 +33,11 @@ INT		LcNet_SocketUdpCreate(SOCKET* pScH, BOOL bOverLapped=FALSE);			// Create UD
 INT		LcNet_SocketConnect(SOCKET scH, SOCKADDR_IN* psdH);						// Connection
 INT		LcNet_SocketBind(SOCKET scH, SOCKADDR_IN* pSdH);						// Socket Binding
 INT		LcNet_SocketListen(SOCKET scH);											// Socket Listen
-
 INT		LcNet_SocketAccept(SOCKET* pscOut			// Output Socket
 							, SOCKADDR_IN* psdOut	// Output Socket Address
 							, SOCKET scListen		// Listen socket
 							);						// Accept
+
 
 INT		LcNet_SocketSelect(FD_SET* pFdRead, FD_SET* pFdWrite, TIMEVAL* timeout, FD_SET* pFdExcept=NULL);
 
@@ -69,48 +58,40 @@ DWORD	LcNet_ThreadSuspend(HANDLE* hThread);									// Thread Suspend
 DWORD	LcNet_ThreadWait(HANDLE* hThread, DWORD dMilliseconds = INFINITE);
 
 
-
-// AsyncSelect I/O Model
-INT		LcNet_WSAAsyncSelect(	SOCKET		scH
-							,	HWND		hWnd
-							,	unsigned int wMsg								// Message ID
-							,	long lEvents =(FD_ACCEPT|FD_CONNECT|FD_READ|FD_WRITE|FD_CLOSE)
-							 );													// WSA Async Select
-
-
-// Event I/O Model
-HANDLE	LcNet_EventCreate(		BOOL bManualReset=FALSE							// FALSE이면 수동으로 Reset(활성화)을 호출 해야 한다.
-							,	BOOL bIntitialState=TRUE);						// 초기 상태가 Signal(활성화)상태
+// 이벤트
+HANDLE	LcNet_EventCreate(	BOOL bManualReset=FALSE								// FALSE이면 수동으로 Reset(활성화)을 호출 해야 한다.
+						,	BOOL bIntitialState=TRUE							// 초기 상태가 Signal(활성화)상태
+						);
 
 void	LcNet_EventResume(HANDLE hEvent);										// 이벤트 활성화
 void	LcNet_EventSuspend(HANDLE hEvent);										// 이벤트 비활성화
 
 INT		LcNet_EventWait(HANDLE hEvent, DWORD dWaitMillisecond=INFINITE);		// Event Wait
+
 void	LcNet_EventClose(HANDLE* hEvent);
+
+
 
 HANDLE	LcNet_WSAEventCreate();													// WSA Event Create
 void	LcNet_WSAEventClose(HANDLE* pEvent);									// WSA Event Close
 
-INT		LcNet_WSAEventSelect(	SOCKET scH
+INT		LcNet_WSAEventSelect(													// WSA Event Select
+								SOCKET scH
 							,	HANDLE evEvt
 							,	long lEvents =(FD_ACCEPT|FD_CONNECT|FD_READ|FD_WRITE|FD_CLOSE)
-							 );													// WSA Event Select
+							 );
 
-INT		LcNet_WSAEventWaits(	INT* pArr	// In: Event Array. 배열에는 이벤트 숫자 만큼 이벤트 인덱스가 기록 되어 있다.
-							,	INT nSrc	// In: Event Array Number.
-							,	HANDLE* pSrc// In:
-							);													// Return is Event 숫자. Failse is -1
-
+INT		LcNet_WSAEventWaits(INT* pArr/*In,Out*/, INT nSrc/*In*/, HANDLE* pSrc/*In*/);	// Return is Event Count.. Failse is -1
 INT		LcNet_WSAEventEnum(SOCKET s, HANDLE e);									// WSA Enum Network Event
 
 
-// 기타
+
+
 INT		LcNet_GetSystemProcessNumber();											// Number of CPU
 HANDLE	LcNet_IocpPortCreate(SOCKET scH, HANDLE hIocp, void* pAddress);			// IOCP 포트 생성
 
-INT		LcNet_LocalIpAddress(	char* sIp	///*List*/
-							,	INT* piN=NULL/*Count*/
-							,	INT* iWidth=NULL);	// Get Local Ip Addresses
+
+INT		LcNet_LocalIpAddress(char* sIp/*List*/,INT* piN=NULL/*Count*/,INT* iWidth=NULL);	// Get Local Ip Addresses
 
 
 
@@ -121,10 +102,9 @@ INT		LcNet_LocalIpAddress(	char* sIp	///*List*/
 ////////////////////////////////////////////////////////////////////////////////
 
 #define PCK_USE_BUF_POINTER	0
-#define PCK_BUF_MAX_MSG		256
-#define PCK_BUF_MAX_QUEUE	1024
+#define PCK_BUF_MAX_MSG		1024
+#define PCK_BUF_MAX_QUEUE	4096
 #define PCK_BUF_HEAD		2
-#define PCK_BUF_CRYPT		4
 #define PCK_BUF_KIND		4
 #define PCK_BUF_TAIL		4
 
@@ -277,10 +257,9 @@ INT	 LcNet_PacketEncode(BYTE* pOut						// Output Packet
 					  , BYTE* sMsg						// Packet contents
 					  , INT iSndM						// Pakcet contents length
 					  , DWORD nMsg						// Send Message Kind
-					  , INT iPstL=(PCK_BUF_HEAD)		// Packet Structure Length	= 2 Byte
-					  ,	INT	iPstC=(PCK_BUF_CRYPT)		// Packet Cryptography Length= 4 Byte
-					  , INT iPstM=(PCK_BUF_KIND)		// Packet Structure Message = 4 Byte
-					  , INT iPstT=(PCK_BUF_TAIL)		// Packet End Mark			= 4 Byte
+					  , INT iPstL=(PCK_BUF_HEAD)		// Packet Structure Length Byte =2(WORD)
+					  , INT iPstM=(PCK_BUF_KIND)		// Packet Structure Message Byte = 4(INT)
+					  , INT iPstT=(PCK_BUF_TAIL)		// Packet Structure Tail Byte = 4(INT)
 					  );
 
 
@@ -288,13 +267,15 @@ INT	 LcNet_PacketDecode(BYTE* sMsg						// Output Message
 					  , DWORD* nMsg						// Receive Message Kind
 					  , BYTE* pIn						// Receive Packets
 					  , INT iRcvM						// Receive Packet Length
-					  , INT iPstL=(PCK_BUF_HEAD)		// Packet Structure Length	= 2 Byte
-					  ,	INT	iPstC=(PCK_BUF_CRYPT)		// Packet Cryptography Length= 4 Byte
-					  , INT iPstM=(PCK_BUF_KIND)		// Packet Structure Message = 4 Byte
-					  , INT iPstT=(PCK_BUF_TAIL)		// Packet End Mark			= 4 Byte
+					  , INT iPstL=(PCK_BUF_HEAD)		// Packet Structure Length Byte =2(WORD)
+					  , INT iPstM=(PCK_BUF_KIND)		// Packet Structure Message Byte = 4(INT)
+					  , INT iPstT=(PCK_BUF_TAIL)		// Packet Structure Tail Byte = 4(INT)
 					  );
 
 
 
+
 #endif
+
+
 

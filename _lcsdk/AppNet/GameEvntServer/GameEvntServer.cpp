@@ -35,8 +35,8 @@ void main()
 	printf("\n\n네트워크 실행--------------------\n");
 
 
-	char	sBufSnd[PCK_BUF_MAX_MSG]={0};
-	char	sBufRcv[PCK_BUF_MAX_MSG]={0};
+	char	sBufSnd[1024]={0};
+	char	sBufRcv[1024]={0};
 	INT		iLenSnd=0;
 	INT		iLenRcv=0;
 	DWORD	dRcvMsg=0;

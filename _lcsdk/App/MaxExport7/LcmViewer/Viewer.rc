@@ -1,0 +1,261 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define IDC_STATIC -1
+#include <windows.h>
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "Open Model ...",              ID_MNU_OPEN_LCM
+        MENUITEM "Open Link Model ...",         ID_MNU_OPEN_LNK
+        MENUITEM SEPARATOR
+        MENUITEM "Exit ...",                    IDM_EXIT
+    END
+    POPUP "View"
+    BEGIN
+        MENUITEM "Point ...",                   ID_VIEW_POINT
+        MENUITEM "Wire Frame ...",              ID_VIEW_WIRE
+        MENUITEM "Solid ...",                   ID_VIEW_SOLID
+        MENUITEM SEPARATOR
+        MENUITEM "Culling ...",                 ID_VIEW_CULL
+        MENUITEM "Collision Box ...",           ID_VIEW_BOX
+        MENUITEM SEPARATOR
+        MENUITEM "Show Bone ...",               ID_VIEW_BONE
+        MENUITEM "Show Model ...",              ID_VIEW_MDL
+        MENUITEM "Show Grid ...",               ID_VIEW_GRID
+        MENUITEM "Show Field ...",              ID_VIEW_FIELD
+    END
+    POPUP "about"
+    BEGIN
+        MENUITEM "Lcm Viewer Á¤º¸",             ID_MNU_INFO
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DDS
+//
+
+IDR_DDS_LAWN            DDS     DISCARDABLE     "_res\\lawn.dds"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDFX_DIALOG DIALOGEX 0, 0, 367, 492
+STYLE WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Fx Editor"
+FONT 10, "µ¸¿ò", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDFX_EDIT,"RichEdit20A",WS_BORDER | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP | 0xc4,1,7,260,447,
+                    WS_EX_DLGMODALFRAME
+    PUSHBUTTON      "Load..",IDFX_LOAD,145,461,35,18
+    DEFPUSHBUTTON   "Save..",IDFX_SAVE,184,461,35,18
+    DEFPUSHBUTTON   "OK",IDFX_OK,223,461,35,18
+    EDITTEXT        IDFX_LINE,107,465,26,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER | NOT WS_BORDER,WS_EX_STATICEDGE
+    GROUPBOX        "",IDFX_FRAMESTATIC1,0,0,265,457
+    LTEXT           "Line",IDC_STATIC,74,465,26,9,0,WS_EX_RIGHT
+END
+
+IDFX_INFO DIALOG DISCARDABLE  0, 0, 123, 167
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "ÇÁ·Î±×·¥ Á¤º¸"
+FONT 10, "±¼¸²"
+BEGIN
+    LTEXT           "Lcm Model Viewer",IDC_STATIC,27,9,58,8
+    LTEXT           "Animation Speed: Add or Sub Key",IDC_STATIC,8,31,106,8
+    LTEXT           "Model Rotation: Left or Right Key",IDC_STATIC,8,45,101,
+                    8
+    LTEXT           "Copy Right ¨Ï 2008 Galic Studio",IDC_STATIC,10,95,99,8
+    LTEXT           "All rights reserved.",IDC_STATIC,27,111,60,8
+    DEFPUSHBUTTON   "OK",IDOK,32,125,50,14
+    GROUPBOX        "",IDC_STATIC,2,0,119,163
+END
+
+IDFX_ANI DIALOGEX 0, 0, 624, 384
+STYLE WS_POPUP | WS_BORDER
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 9, "µ¸¿ò"
+BEGIN
+    EDITTEXT        IDLCM_FRM_TOT,74,12,16,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDLCM_FRM_CUR,146,12,16,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDLCM_FRM_BGN,186,12,17,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDLCM_FRM_END,228,12,17,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    COMBOBOX        IDLCM_FRM_LST,274,12,95,150,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Slider1",IDLCM_FRM_TRC,"msctls_trackbar32",
+                    TBS_AUTOTICKS | TBS_ENABLESELRANGE | WS_TABSTOP,9,32,293,
+                    14
+    DEFPUSHBUTTON   "¡ç",IDLCM_FRM_BEFORE,304,31,16,14,BS_FLAT
+    DEFPUSHBUTTON   "£¾",IDLCM_FRM_PLAY,324,31,16,14,BS_FLAT
+    DEFPUSHBUTTON   "¡æ",IDLCM_FRM_NEXT,344,31,16,14,BS_FLAT
+    DEFPUSHBUTTON   "¡á",IDLCM_FRM_STOP,364,31,16,14,BS_FLAT
+    RTEXT           "Total Frame",IDC_STATIC,30,14,40,8
+    RTEXT           "Current Frame",IDC_STATIC,94,14,49,8
+    RTEXT           "Start",IDC_STATIC,167,14,15,8
+    RTEXT           "End",IDC_STATIC,210,14,15,8
+    LTEXT           "Name",IDC_STATIC,254,14,17,8
+    GROUPBOX        "Frame",IDFX_FRAMESTATIC2,2,0,382,69
+    COMBOBOX        IDLCM_LNK_LST,54,74,95,141,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Del",IDLCM_LNK_DEL,195,74,16,14,BS_FLAT
+    RTEXT           "Name",IDC_STATIC,30,77,20,8
+    RTEXT           "Delete Link",IDC_STATIC,153,77,39,8
+    GROUPBOX        "Link",IDFX_FRAMESTATIC3,2,64,382,28
+    COMBOBOX        IDLCM_OBJ_LST,413,15,88,141,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDLCM_OBJ_MTL,558,15,20,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    RTEXT           "Name",IDC_STATIC,390,18,20,8
+    RTEXT           "Material Index",IDC_STATIC,506,18,47,8
+    DEFPUSHBUTTON   "Save",IDLCM_OBJ_SAVE,557,43,24,17,BS_FLAT
+    GROUPBOX        "Object",IDFX_FRAMESTATIC4,383,0,202,92
+    EDITTEXT        IDLCM_FRM_SPD,287,50,53,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "¡è",IDLCM_FRM_SPA,344,49,16,14,BS_FLAT
+    DEFPUSHBUTTON   "¡é",IDLCM_FRM_SPS,364,49,16,14,BS_FLAT
+    RTEXT           "Frame Speed",IDC_STATIC,239,52,45,8
+    COMBOBOX        IDLCM_MTL_LST,436,43,28,141,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Material",IDC_STATIC,398,45,34,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDFX_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 366
+        BOTTOMMARGIN, 491
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// FX
+//
+
+IDFX_HLSL               FX      DISCARDABLE     "_res\\Hlsl.fx"
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN_ICON           ICON    DISCARDABLE     "_res/DirectX.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define IDC_STATIC -1\r\n"
+    "#include <windows.h>\r\n"
+    "\r\n"
+    "\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAIN_ACCEL ACCELERATORS DISCARDABLE 
+BEGIN
+    VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
+    VK_F2,          IDM_CHANGEDEVICE,       VIRTKEY, NOINVERT
+    VK_RETURN,      IDM_TOGGLEFULLSCREEN,   VIRTKEY, ALT, NOINVERT
+    "X",            IDM_EXIT,               VIRTKEY, ALT, NOINVERT
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

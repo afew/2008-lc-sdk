@@ -127,11 +127,7 @@ INT CLcNetIocp::LcNetIocpHost::AsyncRecv()
 		, NULL);
 	
 	if(FAILED(LcNet_SocketErrorCheck(hr)))
-	{
-		ERROR_CHECK_MESSAGE(hr);
-		
 		return -1;
-	}
 	
 	return 0;
 }
@@ -168,11 +164,7 @@ INT CLcNetIocp::LcNetIocpHost::AsyncSend()
 	olSnd.dEnbl	= FALSE;
 	
 	if(FAILED(LcNet_SocketErrorCheck(hr)))
-	{
-		ERROR_CHECK_MESSAGE(hr);
-
 		return -1;
-	}
 
 	return 0;
 }

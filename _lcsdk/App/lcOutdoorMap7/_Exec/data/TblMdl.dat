@@ -1,0 +1,42 @@
+////////////////////////////////////////////////////
+//
+
+Version	0.0.1
+
+TbMst
+{
+	NumC	2
+
+	TbSub
+	{
+		Index	0
+		NumS	10
+		Path	Model/2D/
+
+		Rec*	0	12	Mdl2D00.ini
+		Rec*	1	12	Mdl2D01.ini
+		Rec*	2	12	Mdl2D02.ini
+		Rec*	3	12	Mdl2D03.ini
+		Rec*	4	12	Mdl2D04.ini
+		Rec*	5	12	Mdl2D05.ini
+		Rec*	6	12	Mdl2D06.ini
+		Rec*	7	12	Mdl2D07.ini
+		Rec*	8	12	Mdl2D08.ini
+		Rec*	9	12	Mdl2D09.ini
+	}
+
+	TbSub
+	{
+		Index	1
+		NumS	7
+		Path	Model/3D/
+
+		Rec*	0	13	Tree01.ini
+		Rec*	1	13	Tree02.ini
+		Rec*	2	13	Tree03.ini
+		Rec*	3	13	Tree04.ini
+		Rec*	4	13	Rock01.ini
+		Rec*	5	13	Rock02.ini
+		Rec*	6	13	Rock03.ini
+	}
+}

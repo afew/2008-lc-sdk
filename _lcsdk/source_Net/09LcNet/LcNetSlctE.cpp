@@ -153,26 +153,18 @@ INT CLcNetSlctE::Connect(char* sIp, char* sPort)
 	m_hEvnt = LcNet_WSAEventCreate();											// 커넥션을 연결 전 네트워크 이벤트 연결
 
 	// EventSelect에 연결. 자동으로 Non-blocking전환
-	INT hr = LcNet_WSAEventSelect(m_scH
-								, m_hEvnt
-								, (FD_CONNECT|FD_READ|FD_WRITE|FD_CLOSE) );
+	INT hr = WSAEventSelect(  m_scH
+							, m_hEvnt
+							, (FD_CONNECT|FD_READ|FD_WRITE|FD_CLOSE) );
 
 	if(FAILED(LcNet_SocketErrorCheck(hr)))
-	{
-		ERROR_CHECK_MESSAGE(hr);
-
 		return -1;
-	}
 
 	//4. 커넥션
 	hr = LcNet_SocketConnect(m_scH, &m_sdH);
 
 	if(FAILED(LcNet_SocketErrorCheck(hr)))
-	{
-		ERROR_CHECK_MESSAGE(hr);
-		
 		return -1;
-	}
 
 	m_eNetSt = NETST_CONNECTING;
 	
@@ -229,7 +221,7 @@ INT CLcNetSlctE::Listen()
 	
 	// Accept하기 전에 이벤트를 연결한다.
 	m_hEvnt = LcNet_WSAEventCreate();
-	if(SOCKET_ERROR == LcNet_WSAEventSelect(m_scH, m_hEvnt, (FD_ACCEPT|FD_READ|FD_WRITE|FD_CLOSE) ))
+	if(SOCKET_ERROR == WSAEventSelect(m_scH, m_hEvnt, (FD_ACCEPT|FD_READ|FD_WRITE|FD_CLOSE) ))
 		return -1;
 
 	if(FAILED(LcNet_SocketListen(m_scH)))
@@ -476,8 +468,6 @@ DWORD CLcNetSlctE::ProcSend(void* pParam)
 
 			if(FAILED(LcNet_SocketErrorCheck(hr)))
 			{
-				ERROR_CHECK_MESSAGE(hr);
-
 				m_nThSend = -1;
 				hr = -1;
 				break;
@@ -496,8 +486,6 @@ DWORD CLcNetSlctE::ProcSend(void* pParam)
 
 						if(FAILED(LcNet_SocketErrorCheck(hr)))
 						{
-							ERROR_CHECK_MESSAGE(hr);
-
 							continue;
 						}
 					}
@@ -556,8 +544,6 @@ INT CLcNetSlctE::SendAllData()
 
 		if(FAILED(LcNet_SocketErrorCheck(iSize)))			// Error Check
 		{
-			ERROR_CHECK_MESSAGE(hr);
-
 			m_nThSend = -1;
 			hr =-1;
 			break;

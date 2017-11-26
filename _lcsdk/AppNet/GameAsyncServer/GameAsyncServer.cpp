@@ -2,8 +2,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#pragma comment(linker, "/subsystem:windows")
-
 #pragma comment(lib, "Winmm.lib")
 
 #include <windows.h>
@@ -34,12 +32,11 @@ void	Cleanup();																// 윈도우 해제 함수
 LRESULT WINAPI WndProc( HWND, UINT, WPARAM, LPARAM);							// 윈도우 메시지 처리함수
 
 
-int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
-//void main()
+void main()
 {
 	// 윈속을 초기화
 	if(FAILED(LcNet_WinSockCreate()))
-		return 0;
+		return;
 
 	char	sIp[64]={0};
 	LcNet_LocalIpAddress(sIp);
@@ -49,11 +46,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	
 	if(FAILED(Create()))
-		return 0;
+		return;
 
 	
 	if(FAILED(LcNet_CreateTcpServerEx("Async Select", &g_pNet, NULL, HOST_PORT, &m_hWnd, &m_dwMsg)))
-		return 0;
+		return;
 
 	printf("\n\n네트워크 실행--------------------\n");
 
@@ -64,8 +61,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	// 윈속해제
 	LcNet_WinsockDestroy();
-
-	return 0;
 }
 
 
@@ -166,8 +161,8 @@ INT Run()
 
 		
 		
-		char	sBufSnd[PCK_BUF_MAX_MSG]={0};
-		char	sBufRcv[PCK_BUF_MAX_MSG]={0};
+		char	sBufSnd[1024]={0};
+		char	sBufRcv[1024]={0};
 		INT		iLenSnd=0;
 		INT		iLenRcv=0;
 		DWORD	dRcvMsg=0;
@@ -187,7 +182,7 @@ INT Run()
 
 				if(iLenRcv>0)
 				{
-//					printf("Rcv: Msg:%x Buf:%s\n", dRcvMsg, sBufRcv);
+					printf("Rcv: Msg:%x Buf:%s\n", dRcvMsg, sBufRcv);
 					sprintf(sBufSnd, "Echo: %s", sBufRcv);
 					iLenSnd=strlen(sBufSnd);
 

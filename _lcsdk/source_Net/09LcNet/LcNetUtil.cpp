@@ -17,7 +17,7 @@
 
 
 
-void LcNet_FormatMessage(char* sMsg, DWORD hr)
+void LcNet_FormatMessage(DWORD hr)
 {
 	LPVOID	pBuf;
 
@@ -33,11 +33,18 @@ void LcNet_FormatMessage(char* sMsg, DWORD hr)
 		NULL 
 	);
 
-	printf("Message:"
+	printf("Error Line:"
+			"%3d "
+			"%s	"
+			"%s	"
+			"%s	"
 			"%s\n"
+			, __LINE__
+			, __DATE__
+			, __TIME__
+			, __FILE__
 			, pBuf);
-
-	sprintf(sMsg, (const char*)pBuf);
+	
 	LocalFree( pBuf );
 }
 
@@ -65,14 +72,22 @@ void LcNet_FormatMessage(char* sMsg)
 
 
 
-void LcNet_ErrorMessage(DWORD hr)
+void LcNet_GetNetworkError(DWORD hr)
 {
 	char	sMsg[512] ={0};
 
 	LcNet_FormatMessage(sMsg);
 
-	printf("Error:"
+	printf("Error Line:"
+			"%3d "
+			"%s	"
+			"%s	"
+			"%s	"
 			"%s\n"
+			, __LINE__
+			, __DATE__
+			, __TIME__
+			, __FILE__
 			, sMsg);
 }
 
@@ -169,7 +184,10 @@ INT LcNet_SocketErrorCheck(INT hr)
 		hr = (WSA_IO_PENDING ==hr || WSAEWOULDBLOCK==hr || WSAEISCONN==hr) ? 1 : 0;
 
 		if(0 == hr)
+		{
+			LcNet_FormatMessage(hr);
 			return -1;
+		}
 	}
 
 	return 0;
@@ -490,20 +508,6 @@ DWORD LcNet_ThreadWait(HANDLE* hThread, DWORD dMilliseconds)
 
 
 
-INT LcNet_WSAAsyncSelect(	SOCKET		scH
-						,	HWND		hWnd
-						,	unsigned int wMsg								// Message ID
-						,	long		lEvents)
-{
-	INT hr= WSAAsyncSelect(scH, hWnd, wMsg, lEvents);
-
-	if(SOCKET_ERROR == hr)
-		return hr;
-
-	return 0;
-}
-
-
 
 
 HANDLE LcNet_EventCreate(BOOL bManualReset, BOOL bIntitialState)
@@ -571,7 +575,7 @@ INT LcNet_WSAEventSelect(SOCKET scH, HANDLE evEvt, long lEvents)
 	INT hr= WSAEventSelect(scH, evEvt, lEvents);
 
 	if(SOCKET_ERROR == hr)
-		return hr;
+		return -1;
 
 	return 0;
 }
@@ -904,22 +908,22 @@ INT TRingBuf::PopFront(BYTE* /*Out*/pDst, WORD* iSize/*Length*/)
 
 
 
-INT LcNet_PacketEncode(BYTE* pOut		// Output Packet
-					  , BYTE* sMsg		// Packet contents
-					  , INT iSndM		// Pakcet contents length
-					  , DWORD nMsg		// Send Message Kind
-					  , INT iPstL		// Packet Structure Length Byte = 2 Byte
-					  ,	INT	iPstC		// Packet Cryptography	Length	= 4 Byte
-					  , INT iPstM		// Packet Structure Message Byte= 4 Byte
-					  , INT iPstT		// Packet Structure Tail Byte	= 4 Byte
+
+
+INT LcNet_PacketEncode(BYTE* pOut					// Output Packet
+					  , BYTE* sMsg					// Packet contents
+					  , INT iSndM					// Pakcet contents length
+					  , DWORD nMsg					// Send Message Kind
+					  , INT iPstL					// Packet Structure Length Byte =2(WORD)
+					  , INT iPstM					// Packet Structure Message Byte = 4(INT)
+					  , INT iPstT					// Packet Structure Tail Byte = 4(INT)
 						)
 {
 	// 데이터 전송
-	//	+-----------+--------------+------------+------------------+------------------------+
-	//	|길이(2Byte)| Crypto(4Byte)| 종류(4Byte)| 메시지           | 암호화 방식(tail:4Byte)|
-	//	+-----------+--------------+------------+------------------+------------------------+
-	INT	eEnc= 0x12344321;		// Cryptography
-	INT	iEnd= 0xDEADBEEF;		// End Mark
+	//	+-----------+------------+------------------+------------------------+
+	//	|길이(2Byte)| 종류(4Byte)| 메시지           | 암호화 방식(tail:4Byte)|
+	//	+-----------+------------+------------------+------------------------+
+	BYTE	sEnc[4]="123";
 
 
 	////////////////////////////////////////////////////////////////////////////
@@ -928,68 +932,60 @@ INT LcNet_PacketEncode(BYTE* pOut		// Output Packet
 	//
 	////////////////////////////////////////////////////////////////////////////
 
-	// Packet을 만들기위한 위치 계산
-	INT  iCr = iPstL;									// 암호화 방식 위치
-	INT  iMs = iPstL + iPstC;							// 메시지 종류 위치
-	INT  iSn = iPstL + iPstC + iPstM;					// 보낼 Message 위치
-	WORD iEn = iPstL + iPstC + iPstM + iSndM;			// End Mark 위치
-	WORD iTot= iPstL + iPstC + iPstM + iPstT + iSndM;	// 암호화 길이 포함 전체 패킷 길이
+	INT		iHead= iPstL + iPstM;						// 총 6Byte
+	WORD	iLen = iPstL + iPstM + iSndM;				// 패킷 길이를 세팅
+	WORD	iTot = iPstL + iPstM + iSndM + iPstT;		// 암호화 길이 포함 전체 패킷 길이
 
 
-				memcpy(pOut + 0	 , &iTot, iPstL);	// 패킷 전체길이 복사
-	if(iPstC)	memcpy(pOut + iCr, &eEnc, iPstC);	// 암호 방식 복사
-	if(iPstM)	memcpy(pOut + iMs, &nMsg, iPstM);	// 메시지 종류 복사
-				memcpy(pOut + iSn,  sMsg, iSndM);	// 메시지 복사
-	if(iPstT)	memcpy(pOut + iEn, &iEnd, iPstT);	// End Mark 복사
+	memcpy(pOut + 0	   , &iTot, iPstL);				// 패킷 전체길이 복사
+	memcpy(pOut + iPstL, &nMsg, iPstM);				// 패킷 종류 복사
+	memcpy(pOut + iHead,  sMsg, iSndM);				// 패킷 메시지 복사.
+	memcpy(pOut + iLen ,  sEnc, iPstT);				// 암호화 방식 복사
 
 	// 패킷 전체 길이 리턴
 	return iTot;
 }
 
 
-
-INT LcNet_PacketDecode(BYTE* sMsg		// Output Message
-					  , DWORD* nMsg		// Receive Message Kind
-					  , BYTE* pIn		// Receive Packets
-					  , INT iRcvM		// Receive Packet Length
-					  , INT iPstL		// Packet Structure Length Byte = 2 Byte
-					  ,	INT	iPstC		// Packet Cryptography			= 4 Byte
-					  , INT iPstM		// Packet Structure Message Byte= 4 Byte
-					  , INT iPstT		// Packet Structure Tail Byte	= 4 Byte
+INT LcNet_PacketDecode(BYTE* sMsg					// Output Message
+					  , DWORD* nMsg					// Receive Message Kind
+					  , BYTE* pIn					// Receive Packets
+					  , INT iRcvM					// Receive Packet Length
+					  , INT iPstL					// Packet Structure Length Byte =2(WORD)
+					  , INT iPstM					// Packet Structure Message Byte = 4(INT)
+					  , INT iPstT					// Packet Structure Tail Byte = 4(INT)
 					  )
 {
 	// 패킷을 분해.
-	INT		eEnc = 0;				// 암호화 방식
-	WORD	iTot = 0;				// 전체 패킷의 길이
-	INT		iSnd = 0;				// 전송된 메시지의 길이					
-	INT		iEnd= 0x0;				// End Mark
+	BYTE	sEnc[4]={0};
+	WORD	iTot = 0;
+	INT		iLen = 0;
 
+	memcpy(sEnc, pIn + iRcvM - iPstT, iPstM);			// 암호화 종류를 가져온다.
 
-	memcpy(&iTot, pIn + 0, iPstL);	// 전체 길이를 가져온다.
-
-	// 전체 길이와 입력 받은 패킷의 길이를 비교한다.
-	if( iTot < iRcvM)
-		return -1;
-
-	iSnd = iTot - ( iPstL + iPstC + iPstM + iPstT);		// 메시지의 길이를 설정
-
-	INT  iCr = iPstL;									// 암호화 방식 위치
-	INT  iMs = iPstL + iPstC;							// 메시지 종류 위치
-	INT  iSn = iPstL + iPstC + iPstM;					// 보낼 Message 위치
-	WORD iEn = iTot  - iPstT;							// End Mark 위치
 	
-	if(iPstC)	memcpy(&eEnc, pIn + iCr , iPstC);		// 암호화 종류를 가져온다.
-	if(iPstM)	memcpy( nMsg, pIn + iMs , iPstM);		// 메시지의 종류를 가저온다.
-	if(iPstT)	memcpy( sMsg, pIn + iSn , iSnd );		// 메시지를 가져온다.
-
 	////////////////////////////////////////////////////////////////////////////
 	//
 	// Decoding Process... 생략..
 	//
 	////////////////////////////////////////////////////////////////////////////
 
+	
+	
+	
+	memcpy(&iTot, pIn + 0	, iPstL);					// 전체 길이를 가져온다.
+
+	// 전체 길이와 피킷을 길이를 비교한다.
+	if( iTot != iRcvM)
+		return -1;
+
+	iLen = iTot - ( iPstL + iPstM + iPstT);				// 메시지의 길이를 설정
+	
+	memcpy(nMsg, pIn + iPstL	  , iPstM);				// 메시지의 종류를 가저온다.
+	memcpy(sMsg, pIn + iPstL+iPstM, iLen );				// 메시지를 가져온다.
+
 	// 메시지 길이 리턴
-	return iSnd;
+	return iLen;
 }
 
 
