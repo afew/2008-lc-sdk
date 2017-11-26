@@ -1,0 +1,11 @@
+[FrameIndex]
+Total=8
+
+0 = None	0	0
+1 = Idle	0	49
+2 = Walk	145	180
+3 = Run		190	205
+4 = Dash	190	205
+5 = Follow	190	205
+6 = Attack	395	425
+7 = Damage	55	79

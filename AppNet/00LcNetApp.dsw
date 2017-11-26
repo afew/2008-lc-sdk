@@ -1,0 +1,149 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "00LcNetApp"=.\00LcNetApp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name DBodbc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name DBoledb
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GameAsyncClient
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GameAsyncServer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GameEvntClient
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GameEvntServer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GameIocpClient
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GameIocpServer
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "DBodbc"=.\DBodbc\DBodbc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "DBoledb"=.\DBoledb\DBoledb.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameAsyncClient"=.\GameAsyncClient\GameAsyncClient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameAsyncServer"=.\GameAsyncServer\GameAsyncServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameEvntClient"=.\GameEvntClient\GameEvntClient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameEvntServer"=.\GameEvntServer\GameEvntServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameIocpClient"=.\GameIocpClient\GameIocpClient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameIocpServer"=.\GameIocpServer\GameIocpServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

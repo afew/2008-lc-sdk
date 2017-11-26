@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////
+//
+
+Version	0.0.1
+
+TbMst
+{
+	NumC	4
+
+	TbSub
+	{
+		Index	0
+		NumS	6
+		Path	Texture/Map
+
+		Rec*	0	0x00070004	Grass0.png
+		Rec*	1	0x00070004	Grass1.png
+		Rec*	2	0x00070004	Sand0.png
+		Rec*	3	0x00070004	Sand1.png
+		Rec*	4	0x00070004	Rock0.png
+		Rec*	5	0x00070004	Rock1.png
+	}
+
+	TbSub
+	{
+		Index	1
+		NumS	10
+		Path	Texture/Mdl2D
+
+		Rec*	0	0x00070004	Mdl2D00.tga
+		Rec*	1	0x00070004	Mdl2D01.tga
+		Rec*	2	0x00070004	Mdl2D02.tga
+		Rec*	3	0x00070004	Mdl2D03.tga
+		Rec*	4	0x00070004	Mdl2D04.tga
+		Rec*	5	0x00070004	Mdl2D05.tga
+		Rec*	6	0x00070004	Mdl2D06.tga
+		Rec*	7	0x00070004	Mdl2D07.tga
+		Rec*	8	0x00070004	Mdl2D08.tga
+		Rec*	9	0x00070004	Mdl2D09.tga
+	}
+
+	TbSub
+	{
+		Index	2
+		NumS	6
+		Path	Texture/Mdl3D
+
+		Rec*	0	0x00070004	MdlTree01.tga
+		Rec*	1	0x00070004	MdlTree02.tga
+		Rec*	2	0x00070004	MdlTree03.tga
+		Rec*	3	0x00070004	MdlTree04.tga
+		Rec*	4	0x00070004	MdlRock01.tga
+		Rec*	5	0x00070004	MdlRock02.tga
+	}
+
+	TbSub
+	{
+		Index	3
+		NumS	1
+		Path	Texture/EtcAll
+
+		Rec*	0	0x00070004	Env_Sky.jpg
+	}
+}

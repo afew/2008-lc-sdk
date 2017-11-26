@@ -1,0 +1,314 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "00LcSDK"=.\00LcSDK.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name 01LcLua
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 08LcEuclid
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 10LcBasic
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 10LcIme
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 10LcInput
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 10LcUtil
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 11LcFont
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 11LcTex
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 12LcDev
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 13LcSmd
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 14LcM3d
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 18LcLsc
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 21LcxCam
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 22LcmMdl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 22LcxtObj
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 23LcxDXFile
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 26LcxShow
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 28LcxTbl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name 31LcxField
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "01LcLua"=.\01LcLua\01LcLua.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "08LcEuclid"=.\08LcEuclid\08LcEuclid.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "10LcBasic"=.\10LcBasic\10LcBasic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "10LcIme"=.\10LcIme\10LcIme.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "10LcInput"=.\10LcInput\10LcInput.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "10LcUtil"=.\10LcUtil\10LcUtil.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "11LcFont"=.\11LcFont\11LcFont.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "11LcTex"=.\11LcTex\11LcTex.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "12LcDev"=.\12LcDev\12LcDev.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "13LcSmd"=.\13LcSmd\13LcSmd.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "14LcM3d"=.\14LcM3d\14LcM3d.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "18LcLsc"=.\18LcLsc\18LcLsc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "21LcxCam"=.\21LcxCam\21LcCam.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "22LcmMdl"=.\22LcmMdl\22LcmMdl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "22LcxtObj"=.\22LcxtObj\22LcxtObj.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "23LcxDXFile"=.\23LcxDXFile\23LcxDXFile.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "26LcxShow"=.\26LcxShow\26LcxShow.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "28LcxTbl"=.\28LcxTable\28LcxTable.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "31LcxField"=.\31LcxField\31LcxField.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+
