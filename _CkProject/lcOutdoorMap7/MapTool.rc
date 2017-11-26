@@ -1,0 +1,655 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define IDC_STATIC -1
+#include <windows.h>
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WRK DIALOGEX 0, 0, 126, 454
+STYLE WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Work"
+FONT 8, "Courier New", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "전체 지형 만들기...",IDC_WRK_FLD_CRT,47,17,17,17,
+                    BS_BITMAP | BS_FLAT
+    PUSHBUTTON      "지형 불러오기...",IDC_WRK_FLD_LOAD,68,17,17,17,
+                    BS_BITMAP | BS_FLAT
+    PUSHBUTTON      "전체 지형 저장하기...",IDC_WRK_FLD_SAVE,89,17,17,17,
+                    BS_BITMAP | BS_FLAT
+    PUSHBUTTON      "블록 만들기...",IDC_WRK_LCL_CRT,40,39,17,17,BS_BITMAP | 
+                    BS_FLAT | NOT WS_VISIBLE | WS_DISABLED,WS_EX_TRANSPARENT
+    PUSHBUTTON      "블록 불러오기...",IDC_WRK_LCL_LOAD,59,39,17,17,
+                    BS_BITMAP | BS_FLAT | NOT WS_VISIBLE | WS_DISABLED,
+                    WS_EX_TRANSPARENT
+    PUSHBUTTON      "블록 저장 하기...",IDC_WRK_LCL_SAVE,78,39,17,17,
+                    BS_BITMAP | BS_FLAT | NOT WS_VISIBLE | WS_DISABLED,
+                    WS_EX_TRANSPARENT
+    PUSHBUTTON      "블록 이동 하기...",IDC_WRK_LCL_MOVE,97,39,17,17,
+                    BS_BITMAP | BS_FLAT | NOT WS_VISIBLE | WS_DISABLED,
+                    WS_EX_TRANSPARENT
+    EDITTEXT        IDC_WRK_RNG,35,70,17,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WRK_DH,86,70,17,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_WRK_AC,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | 
+                    WS_TABSTOP,86,94,9,10
+    COMBOBOX        IDC_WRK_GRP,47,204,62,52,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_WRK_OBJ,47,220,62,52,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LISTBOX         IDC_WRK_LST,10,238,104,85,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | NOT WS_BORDER | WS_VSCROLL | 
+                    WS_TABSTOP,WS_EX_STATICEDGE
+    CONTROL         "Animate1",IDC_WRK_PANNEL,"SysAnimate32",WS_BORDER | 
+                    WS_TABSTOP,0,328,124,123,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Out Door",IDC_STATIC,0,0,123,199
+    GROUPBOX        "",IDC_STATIC,0,193,123,133
+    LTEXT           "Range",IDC_STATIC,11,72,20,8
+    LTEXT           "Height",IDC_STATIC,61,72,22,8
+    LTEXT           "Color",IDC_STATIC,97,94,21,9,NOT WS_GROUP
+    LTEXT           "Field",IDC_STATIC,11,21,21,8
+    LTEXT           "Local",IDC_STATIC,11,44,19,8,NOT WS_VISIBLE | 
+                    WS_DISABLED,WS_EX_TRANSPARENT
+    GROUPBOX        "",IDC_STATIC,6,10,112,27
+    GROUPBOX        "",IDC_STATIC,6,32,112,27
+    GROUPBOX        "",IDC_STATIC,10,198,104,21
+    LTEXT           "Group",IDC_STATIC,21,206,21,8
+    GROUPBOX        "",IDC_STATIC,10,214,104,21
+    LTEXT           "Object",IDC_STATIC,20,222,22,8
+    CONTROL         "높이 올리기...",IDC_WRK_BT01,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | WS_GROUP | 
+                    WS_TABSTOP,7,90,17,17
+    CONTROL         "높이 내리기...",IDC_WRK_BT02,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,26,90,17,17
+    CONTROL         "사각영역으로 올리기..",IDC_WRK_BT03,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | NOT 
+                    WS_VISIBLE | WS_DISABLED | WS_TABSTOP,45,90,17,17,
+                    WS_EX_TRANSPARENT
+    CONTROL         "사각영역으로 내리기...",IDC_WRK_BT04,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | NOT 
+                    WS_VISIBLE | WS_DISABLED | WS_TABSTOP,64,90,17,17,
+                    WS_EX_TRANSPARENT
+    CONTROL         "페인팅...",IDC_WRK_BT05,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | WS_TABSTOP,7,113,17,17
+    CONTROL         "색추출...",IDC_WRK_BT06,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | WS_TABSTOP,26,113,17,17
+    CONTROL         "재질",IDC_WRK_BT07,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,45,113,17,
+                    17
+    CONTROL         "조명",IDC_WRK_BT08,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,64,113,17,
+                    17
+    CONTROL         "안개효과...",IDC_WRK_BT09,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,7,135,17,
+                    17
+    CONTROL         "텍스춰 혼합...",IDC_WRK_BT10,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | 
+                    WS_TABSTOP,26,135,17,17
+    CONTROL         "오브젝트...",IDC_WRK_BT11,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,50,147,17,
+                    17
+    CONTROL         "미정..",IDC_WRK_BT12,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | BS_FLAT | NOT WS_VISIBLE | 
+                    WS_DISABLED | WS_TABSTOP,12,167,17,17,WS_EX_TRANSPARENT
+    CONTROL         "오브젝트 수정...",IDC_WRK_BT13,"Button",
+                    BS_AUTORADIOBUTTON | BS_BITMAP | BS_PUSHLIKE | BS_FLAT | 
+                    WS_TABSTOP,31,167,17,17
+    CONTROL         "해제...",IDC_WRK_BT14,"Button",BS_AUTORADIOBUTTON | 
+                    BS_BITMAP | BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,50,167,17,
+                    17
+    EDITTEXT        IDC_WRK_COL_R,102,149,16,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_WRK_COL_G,102,161,16,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_WRK_COL_B,102,173,16,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "R",IDC_STATIC,90,151,8,8,0,WS_EX_RIGHT
+    LTEXT           "G",IDC_STATIC,90,163,8,8,0,WS_EX_RIGHT
+    LTEXT           "B",IDC_STATIC,90,174,8,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_WRK_COL_ALL,81,136,37,12,ES_UPPERCASE | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "",IDC_WRK_COL,"Static",SS_BLACKFRAME | SS_NOTIFY | 
+                    WS_BORDER,88,106,30,28
+END
+
+IDD_FLD DIALOGEX 0, 0, 210, 251
+STYLE WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Field Wizard"
+FONT 10, "System", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FLD_NAME,73,20,86,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FLD_NUM_X,75,60,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FLD_NUM_Z,75,73,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FLD_EXT,75,102,30,12,ES_AUTOHSCROLL
+    CONTROL         "Yes",IDC_FLD_LCL_Y,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,33,149,29,8
+    CONTROL         "No",IDC_FLD_LCL_N,"Button",BS_AUTORADIOBUTTON | NOT 
+                    WS_VISIBLE | WS_DISABLED,66,149,29,8
+    EDITTEXT        IDC_FLD_LCL_NUM,83,165,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FLD_LCL_WDT,83,180,21,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_FLD_LCL_UV,83,195,21,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "적용",IDC_FLD_OK,69,226,32,15
+    PUSHBUTTON      "닫기",IDC_FLD_CLOSE,109,226,32,15
+    LTEXT           "1. Field Name",IDC_STATIC,24,21,46,8
+    LTEXT           "2. How many locals would like to create?",IDC_STATIC,24,
+                    46,133,8
+    LTEXT           "X Direction",IDC_STATIC,32,61,38,8
+    LTEXT           "Z Direction",IDC_STATIC,32,75,38,8
+    LTEXT           "3. Local Width",IDC_STATIC,24,104,47,8
+    LTEXT           "4. Would like to create all locals as same local?",
+                    IDC_STATIC,24,131,157,8
+    LTEXT           "1. Tile Num W",IDC_STATIC,34,167,41,8
+    LTEXT           "2. Tile Width",IDC_STATIC,34,182,42,8
+    LTEXT           "3. UV Width",IDC_STATIC,34,197,40,8
+    GROUPBOX        "",IDC_STATIC,3,0,203,248
+END
+
+IDD_LCL DIALOGEX 0, 0, 185, 148
+STYLE WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Local Create"
+FONT 10, "System", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_LCL_NAME,67,18,97,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LCL_NUM,67,41,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LCL_WDT,137,41,27,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_LCL_UV,67,65,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LCL_POS_X,49,96,30,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LCL_POS_Z,103,96,30,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "적용",IDC_LCL_OK,52,121,32,15
+    PUSHBUTTON      "닫기",IDC_LCL_CLOSE,88,121,32,15
+    LTEXT           "1. Local Name",IDC_STATIC,15,20,48,8
+    LTEXT           "2. Tile Num W",IDC_STATIC,15,43,48,8
+    LTEXT           "Tile Width",IDC_STATIC,100,43,34,8
+    LTEXT           "3. UV Width",IDC_STATIC,15,66,40,8
+    LTEXT           "4. Position",IDC_STATIC,15,86,36,8
+    GROUPBOX        "",IDC_STATIC,3,0,179,145
+    LTEXT           "X",IDC_STATIC,37,98,8,8
+    LTEXT           "Z",IDC_STATIC,92,98,8,8
+END
+
+IDD_MTRL DIALOGEX 0, 0, 155, 156
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Material"
+FONT 10, "System", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_MTL_AL_R,60,23,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_AL_G,82,23,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_AL_B,104,23,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_MTL_AL_C,"Static",SS_BLACKFRAME | SS_NOTIFY,127,
+                    23,20,12,WS_EX_STATICEDGE
+    EDITTEXT        IDC_MTL_DF_R,60,53,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_DF_G,82,53,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_DF_B,104,53,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_MTL_DF_C,"Static",SS_BLACKFRAME | SS_NOTIFY,127,
+                    53,20,12,WS_EX_STATICEDGE
+    EDITTEXT        IDC_MTL_AM_R,60,67,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_AM_G,82,67,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_AM_B,104,67,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_MTL_AM_C,"Static",SS_BLACKFRAME | SS_NOTIFY,127,
+                    67,20,12,WS_EX_STATICEDGE
+    EDITTEXT        IDC_MTL_SP_R,60,81,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_SP_G,82,81,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_SP_B,104,81,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_MTL_SP_C,"Static",SS_BLACKFRAME | SS_NOTIFY,127,
+                    81,20,12,WS_EX_STATICEDGE
+    EDITTEXT        IDC_MTL_EM_R,60,95,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_EM_G,82,95,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MTL_EM_B,104,95,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_MTL_EM_C,"Static",SS_BLACKFRAME | SS_NOTIFY,127,
+                    95,20,12,WS_EX_STATICEDGE
+    EDITTEXT        IDC_MTL_POW,60,109,65,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "적용",IDC_MTL_OK,39,132,32,15
+    PUSHBUTTON      "닫기",IDC_MTL_CLOSE,79,132,32,15
+    GROUPBOX        "",IDC_STATIC,2,0,151,154
+    LTEXT           "R",IDC_STATIC,69,12,8,8
+    LTEXT           "G",IDC_STATIC,91,12,8,8
+    LTEXT           "B",IDC_STATIC,113,12,8,8
+    LTEXT           "Ambient Light",IDC_STATIC,9,25,48,10
+    LTEXT           "Material",IDC_STATIC,9,42,32,10
+    LTEXT           "Diffuse",IDC_STATIC,24,53,32,10
+    LTEXT           "Ambient",IDC_STATIC,24,68,32,10
+    LTEXT           "Specular",IDC_STATIC,24,83,32,10
+    LTEXT           "Emissive",IDC_STATIC,24,98,32,10
+    LTEXT           "Power",IDC_STATIC,24,111,32,10
+END
+
+IDD_LIGHT DIALOGEX 0, 0, 184, 187
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Lighting"
+FONT 10, "System", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_LGT_CMB,62,8,64,59,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "+",IDC_LGT_ADD,130,8,15,12,BS_FLAT,WS_EX_STATICEDGE
+    PUSHBUTTON      "-",IDC_LGT_SUB,147,8,15,12,BS_FLAT,WS_EX_STATICEDGE
+    PUSHBUTTON      "↑",IDC_LGT_UP,164,8,15,12,BS_FLAT,WS_EX_STATICEDGE
+    CONTROL         "Point",IDC_LGT_TYP_P,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,45,29,27,8
+    CONTROL         "Spot",IDC_LGT_TYP_S,"Button",BS_AUTORADIOBUTTON,78,29,
+                    26,8
+    CONTROL         "Directional",IDC_LGT_TYP_D,"Button",BS_AUTORADIOBUTTON,
+                    110,29,48,8
+    EDITTEXT        IDC_LGT_DF_R,44,54,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_DF_G,66,54,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_DF_B,88,54,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_LGT_DF_C,"Static",SS_BLACKFRAME | SS_NOTIFY,111,
+                    54,20,12,WS_EX_STATICEDGE
+    EDITTEXT        IDC_LGT_AM_R,44,68,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_AM_G,66,68,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_AM_B,88,68,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_LGT_AM_C,"Static",SS_BLACKFRAME | SS_NOTIFY,111,
+                    68,20,12,WS_EX_STATICEDGE
+    EDITTEXT        IDC_LGT_SP_R,44,83,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_SP_G,66,83,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_SP_B,88,83,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_LGT_SP_C,"Static",SS_BLACKFRAME | SS_NOTIFY,111,
+                    83,20,12,WS_EX_STATICEDGE
+    EDITTEXT        IDC_LGT_POS_X,44,111,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_POS_Y,74,111,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_POS_Z,104,111,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_DIR_X,44,125,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_DIR_Y,74,125,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_DIR_Z,104,125,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_RNG,36,144,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_THT,92,144,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_FAL,36,157,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_PHI,92,157,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_AT0,36,169,29,12,ES_AUTOHSCROLL
+    LTEXT           "Attnu1",IDC_STATIC,70,171,20,10
+    EDITTEXT        IDC_LGT_AT1,92,169,29,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LGT_AT2,150,169,29,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "적용",IDC_LGT_OK,152,76,27,24
+    PUSHBUTTON      "닫기",IDC_LGT_CLOSE,152,103,27,24
+    GROUPBOX        "",IDC_STATIC,3,0,180,23
+    LTEXT           "R",IDC_STATIC,53,44,8,8
+    LTEXT           "G",IDC_STATIC,75,44,8,8
+    LTEXT           "B",IDC_STATIC,97,44,8,8
+    LTEXT           "Type",IDC_STATIC,12,28,23,10
+    LTEXT           "Diffuse",IDC_STATIC,12,54,30,10
+    LTEXT           "Ambient",IDC_STATIC,12,69,30,10
+    LTEXT           "Position",IDC_STATIC,12,113,30,10
+    LTEXT           "Direction",IDC_STATIC,12,127,30,10
+    LTEXT           "Range",IDC_STATIC,12,145,21,10
+    LTEXT           "FallOff",IDC_STATIC,12,158,21,10
+    LTEXT           "Attnu0",IDC_STATIC,12,171,20,10
+    LTEXT           "Attnu2",IDC_STATIC,127,171,20,10
+    LTEXT           "Theta",IDC_STATIC,70,146,20,10
+    LTEXT           "Phi",IDC_STATIC,70,158,20,10
+    LTEXT           "X",IDC_STATIC,57,101,8,8
+    LTEXT           "Y",IDC_STATIC,87,101,8,8
+    LTEXT           "Z",IDC_STATIC,116,101,8,8
+    LTEXT           "Specular",IDC_STATIC,12,84,30,10
+    LTEXT           "Lighting Index",IDC_STATIC,12,9,48,10
+    GROUPBOX        "",IDC_STATIC,3,18,180,167
+END
+
+IDD_FOG DIALOGEX 0, 0, 131, 141
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Fog"
+FONT 10, "System", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FOG_BGN,41,11,47,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FOG_END,41,27,47,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FOG_DNS,41,43,47,12,ES_AUTOHSCROLL
+    CONTROL         "None",IDC_FOG_NONE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,34,64,33,10
+    CONTROL         "Exp",IDC_FOG_EXP,"Button",BS_AUTORADIOBUTTON,74,64,29,
+                    10
+    CONTROL         "Exp2",IDC_FOG_EXP2,"Button",BS_AUTORADIOBUTTON,34,77,33,
+                    10
+    CONTROL         "Linear",IDC_FOG_LINE,"Button",BS_AUTORADIOBUTTON,74,77,
+                    37,10
+    EDITTEXT        IDC_FOG_R,36,95,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FOG_G,57,95,21,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FOG_B,78,95,21,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_FOG_C,"Static",SS_BLACKFRAME | SS_NOTIFY,100,95,
+                    20,12,WS_EX_STATICEDGE
+    PUSHBUTTON      "적용",IDC_FOG_OK,29,116,28,15
+    PUSHBUTTON      "닫기",IDC_FOG_CLOSE,66,116,28,15
+    LTEXT           "Begin",IDC_STATIC,11,12,20,8
+    LTEXT           "End",IDC_STATIC,11,29,14,8
+    LTEXT           "Mode",IDC_STATIC,11,71,19,8
+    LTEXT           "Color",IDC_STATIC,11,96,18,8
+    GROUPBOX        "",IDC_STATIC,2,0,128,140
+    LTEXT           "Denstity",IDC_STATIC,11,45,28,8
+END
+
+IDD_LAYER DIALOGEX 0, 0, 127, 259
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Layer"
+FONT 10, "System", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_LYR_ORG,13,166,70,88,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_LYR_DST,2,13,121,88,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "",IDC_LYR_PANEL_ORG,"Static",SS_BLACKFRAME,13,181,70,67
+    CONTROL         "",IDC_LYR_PANEL_DST,"Static",SS_BLACKFRAME,2,28,121,67
+    PUSHBUTTON      "적용",IDC_LYR_OK,19,105,36,14
+    PUSHBUTTON      "닫기",IDC_LYR_CLOSE,62,105,36,14
+    GROUPBOX        "Source",IDC_STATIC,10,153,77,99
+    GROUPBOX        "Dest",IDC_STATIC,0,0,126,99
+    PUSHBUTTON      ">>",IDC_LYR_ADD,92,167,19,11
+    PUSHBUTTON      "Del",IDC_LYR_DEL,92,183,19,11
+END
+
+IDD_OBJ DIALOGEX 0, 0, 203, 119
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Object"
+FONT 10, "Arial", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_OBJ_ID,52,9,52,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_OBJ_NAME,52,22,144,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_OBJ_R_X,40,49,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJ_R_Y,92,49,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJ_R_Z,144,49,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJ_T_X,40,64,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJ_T_Y,92,64,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJ_T_Z,144,64,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJ_S_X,40,79,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJ_S_Y,92,79,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OBJ_S_Z,144,79,52,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "적용",IDC_OBJ_OK,57,99,32,12
+    PUSHBUTTON      "닫기",IDC_OBJ_CLOSE,102,99,32,12
+    LTEXT           "Object ID",IDC_STATIC,5,11,33,10
+    LTEXT           "Model Name",IDC_STATIC,5,24,44,10
+    LTEXT           "Rotation",IDC_STATIC,5,51,32,10
+    LTEXT           "Traslation",IDC_STATIC,5,65,32,10
+    LTEXT           "Scaling",IDC_STATIC,5,79,32,10
+    GROUPBOX        "",IDC_STATIC,0,0,200,115
+    LTEXT           "X",IDC_STATIC,63,39,8,8
+    LTEXT           "Y",IDC_STATIC,116,39,8,8
+    LTEXT           "Z",IDC_STATIC,169,39,8,8
+END
+
+IDD_HELP DIALOGEX 0, 0, 157, 103
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "About"
+FONT 10, "돋움", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "닫기",IDC_HELP_CLOSE,111,81,32,15
+    LTEXT           "Galic Studio Outdoor Map Tool",IDC_STATIC,9,11,106,10
+    LTEXT           "Copyright (c) All rights reserved.",IDC_STATIC,9,65,122,
+                    10
+    LTEXT           "Home: http://www.3dapi.com/",IDC_STATIC,26,39,106,10
+    LTEXT           "Email: afewhee@gmail.com",IDC_STATIC,26,52,106,10
+    LTEXT           "제작자: 빵고등어",IDC_STATIC,26,26,106,10
+    GROUPBOX        "",IDC_STATIC,0,0,155,102
+END
+
+IDD_TOOL DIALOGEX 0, 0, 717, 100
+STYLE WS_POPUP | WS_BORDER
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 9, "돋움"
+BEGIN
+    EDITTEXT        IDC_TOOL_NAME,124,12,98,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_POS_X,126,38,34,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_POS_Y,177,38,34,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_POS_Z,228,38,34,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_TILE_NUM,118,65,24,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_TILE_WDT,167,65,24,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_TILE_UV,212,65,24,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "적용",IDC_TOOL_TILE_OK,241,63,23,19
+    GROUPBOX        "",IDC_STATIC,74,0,196,88
+    LTEXT           "1. Field Name",IDC_STATIC,78,14,46,11
+    LTEXT           "4. Position",IDC_STATIC,78,39,36,11
+    LTEXT           "Tile Num W",IDC_STATIC,78,67,38,11
+    LTEXT           "X",IDC_STATIC,112,40,9,11,0,WS_EX_RIGHT
+    LTEXT           "X",IDC_STATIC,163,40,9,11,0,WS_EX_RIGHT
+    LTEXT           "Z",IDC_STATIC,215,40,9,11,0,WS_EX_RIGHT
+    LTEXT           "Width",IDC_STATIC,146,67,18,11,0,WS_EX_RIGHT
+    LTEXT           "UV",IDC_STATIC,197,67,12,11,0,WS_EX_RIGHT
+    CONTROL         "",IDC_TOOL_LYR_SRC0,"Static",SS_BLACKFRAME | WS_BORDER,
+                    277,16,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_SRC1,"Static",SS_BLACKFRAME | WS_BORDER,
+                    307,16,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_SRC2,"Static",SS_BLACKFRAME | WS_BORDER,
+                    337,16,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_SRC3,"Static",SS_BLACKFRAME | WS_BORDER,
+                    367,16,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_SRC4,"Static",SS_BLACKFRAME | WS_BORDER,
+                    397,16,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_SRC5,"Static",SS_BLACKFRAME | WS_BORDER,
+                    427,16,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_SRC6,"Static",SS_BLACKFRAME | WS_BORDER,
+                    457,16,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_SRC7,"Static",SS_BLACKFRAME | WS_BORDER,
+                    487,16,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_DST0,"Static",SS_BLACKFRAME | WS_BORDER,
+                    277,55,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_DST1,"Static",SS_BLACKFRAME | WS_BORDER,
+                    307,55,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_DST2,"Static",SS_BLACKFRAME | WS_BORDER,
+                    337,55,28,30,WS_EX_DLGMODALFRAME
+    CONTROL         "",IDC_TOOL_LYR_DST3,"Static",SS_BLACKFRAME | WS_BORDER,
+                    367,55,28,30,WS_EX_DLGMODALFRAME
+    PUSHBUTTON      "적용",IDC_TOOL_LYR_OK,492,63,23,19
+    GROUPBOX        "",IDC_STATIC,269,0,255,88
+    EDITTEXT        IDC_TOOL_OBJ_ID,580,9,30,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TOOL_OBJ_NAME,580,23,97,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_TOOL_OBJ_R_X,579,42,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_OBJ_R_Y,612,42,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_OBJ_R_Z,645,42,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_OBJ_T_X,579,58,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_OBJ_T_Y,612,58,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_OBJ_T_Z,645,58,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_OBJ_S_X,579,73,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_OBJ_S_Y,612,73,32,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOL_OBJ_S_Z,645,73,32,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "적용",IDC_TOOL_OBJ_OK,681,63,23,19
+    GROUPBOX        "",IDC_STATIC,523,0,192,88
+    LTEXT           "Object ID",IDC_STATIC,533,12,33,10
+    LTEXT           "Model Name",IDC_STATIC,533,25,44,10
+    LTEXT           "Rotation(xyz)",IDC_STATIC,533,44,42,10
+    LTEXT           "Position(xyz)",IDC_STATIC,533,59,42,10
+    LTEXT           "Scaling(xyz)",IDC_STATIC,533,73,42,10
+    LTEXT           "Source",IDC_STATIC,277,7,28,8
+    LTEXT           "Dest",IDC_STATIC,277,47,28,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "&New...",                     IDM_NEW
+        MENUITEM "&Open...",                    IDM_OPEN
+        MENUITEM "&Save...",                    IDM_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "View"
+    BEGIN
+        MENUITEM "View As Solid ...",           IDM_SOLID, CHECKED
+        MENUITEM "Lighting Enable...",          IDM_LGT
+        MENUITEM "Fog Enable ...",              IDM_FOG
+        MENUITEM SEPARATOR
+        MENUITEM "Show Camera Line...",         IDM_LINE_CAMERA, CHECKED
+        MENUITEM "Show Local Line...",          IDM_LINE_LOCAL, CHECKED
+        MENUITEM "Show Sky Dome..",             IDM_SHOW_SKY
+        MENUITEM "Show Bound Box...",           IDM_SHOW_BNDBOX
+        MENUITEM "Show Frame per Second...",    IDM_SHOW_FRAME, CHECKED
+        MENUITEM "Culling Frustum...",          IDM_CULLING_FRUSTUM, CHECKED
+    END
+    MENUITEM "Help",                        IDM_HELP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_WRK                 BITMAP  DISCARDABLE     "_res\\IDBWrk.bmp"
+IDB_ICN01               BITMAP  DISCARDABLE     "_res\\ICON_01.bmp"
+IDB_ICN02               BITMAP  DISCARDABLE     "_res\\ICON_02.bmp"
+IDB_ICN03               BITMAP  DISCARDABLE     "_res\\ICON_03.bmp"
+IDB_ICN04               BITMAP  DISCARDABLE     "_res\\ICON_04.bmp"
+IDB_ICN21               BITMAP  DISCARDABLE     "_res\\ICON_21.bmp"
+IDB_ICN22               BITMAP  DISCARDABLE     "_res\\ICON_22.bmp"
+IDB_ICN23               BITMAP  DISCARDABLE     "_res\\ICON_23.bmp"
+IDB_ICN24               BITMAP  DISCARDABLE     "_res\\ICON_24.bmp"
+IDB_ICN25               BITMAP  DISCARDABLE     "_res\\ICON_25.bmp"
+IDB_ICN26               BITMAP  DISCARDABLE     "_res\\ICON_26.bmp"
+IDB_ICN27               BITMAP  DISCARDABLE     "_res\\ICON_27.bmp"
+IDB_ICN28               BITMAP  DISCARDABLE     "_res\\ICON_28.bmp"
+IDB_ICN29               BITMAP  DISCARDABLE     "_res\\ICON_29.bmp"
+IDB_ICN30               BITMAP  DISCARDABLE     "_res\\ICON_30.bmp"
+IDB_ICN31               BITMAP  DISCARDABLE     "_res\\ICON_31.bmp"
+IDB_ICN32               BITMAP  DISCARDABLE     "_res\\ICON_32.bmp"
+IDB_ICN33               BITMAP  DISCARDABLE     "_res\\ICON_33.bmp"
+IDB_ICN34               BITMAP  DISCARDABLE     "_res\\ICON_34.bmp"
+IDB_ICN35               BITMAP  DISCARDABLE     "_res\\ICON_35.bmp"
+IDB_ICN36               BITMAP  DISCARDABLE     "_res\\ICON_36.bmp"
+IDB_ICN37               BITMAP  DISCARDABLE     "_res\\ICON_37.bmp"
+IDB_ICN38               BITMAP  DISCARDABLE     "_res\\ICON_38.bmp"
+IDB_ICN39               BITMAP  DISCARDABLE     "_res\\ICON_39.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_OBJ, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_TOOL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 92
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN_ICON           ICON    DISCARDABLE     "_res/DirectX.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define IDC_STATIC -1\r\n"
+    "#include <windows.h>\r\n"
+    "\r\n"
+    "\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAIN_ACCEL ACCELERATORS DISCARDABLE 
+BEGIN
+    VK_BACK,        IDM_BACK,               VIRTKEY, NOINVERT
+    VK_ESCAPE,      IDM_ESC,                VIRTKEY, NOINVERT
+    VK_F2,          IDM_CHANGEDEVICE,       VIRTKEY, NOINVERT
+    VK_RETURN,      IDM_RETURN,             VIRTKEY, NOINVERT
+    VK_RETURN,      IDM_RETURN_CTRL,        VIRTKEY, CONTROL, NOINVERT
+    VK_RETURN,      IDM_TOGGLEFULLSCREEN,   VIRTKEY, ALT, NOINVERT
+    VK_RETURN,      IDM_RETURN_SHIFT,       VIRTKEY, SHIFT, NOINVERT
+    VK_TAB,         IDM_TAB,                VIRTKEY, NOINVERT
+    VK_TAB,         IDM_TAB_BACK,           VIRTKEY, SHIFT, NOINVERT
+    "X",            IDM_EXIT,               VIRTKEY, ALT, NOINVERT
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
